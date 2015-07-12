@@ -1,0 +1,22 @@
+#设置服务器端口号
+server:
+  port: 8080
+---
+#绑定服务器参数
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/test
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+---
+#jpa数据库配置
+spring.jpa.hibernate:
+  ddl-auto : create-drop
+  naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+---
+spring.jpa:
+  show-sql: true
+  database: MYSQL
+
+
