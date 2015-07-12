@@ -14,9 +14,13 @@ spring:
 spring.jpa.hibernate:
   ddl-auto : create-drop
   naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
 ---
 spring.jpa:
   show-sql: true
   database: MYSQL
-
+---
+spring.jpa.properties:
+  hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+  org.hibernate.cache.ehcache.configurationResourceName: classpath*:ehcache.xml
 
