@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // 允许访问静态资源
-        http.authorizeRequests().antMatchers("/static/**").permitAll();
+        http.authorizeRequests().antMatchers("/templates/**").permitAll();
         // 允许访问登陆或退出url
         http.formLogin()
                 .failureUrl("/login?error")

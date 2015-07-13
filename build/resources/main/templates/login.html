@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="pure-g-r login-wraper" style="background:#fff;">
+    <c:if test="${message != null}">
+        <div class="errormsg">${message}</div>
+    </c:if>
+    <c:url var="loginUrl" value="login"/>
+    <form id="signup_form" class="pure-form pure-form-aligned" action="${loginUrl}" method="post"
+          data-validator-option="{stopOnError:true,theme:'yellow_top'}"
+            >
+        <fieldset style="padding:1em 0 0 0;">
+            <legend><span style="color:#08c;">系统登陆</span></legend>
+            <div class="pure-control-group">
+                <label for="name">用户名</label>
+                <input id="name" value="xkeshi" name="loginName" type="text" placeholder="请输入用户名"
+                       data-rule="用户名:required;">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="password">密码</label>
+                <input id="password" value="123" name="password" type="password" placeholder="请输入密码"
+                       data-rule="密码:required;">
+            </div>
+
+            <div class="pure-controls">
+                <button id="btn-submit" type="submit" style="position: relative" class="pure-button pure-button-primary">登录</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

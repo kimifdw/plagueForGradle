@@ -6,6 +6,7 @@ version '1.0.0'
 buildscript{
     ext {
 		springBootVersion = '1.3.0.BUILD-SNAPSHOT'
+        flyWayVersion='3.2.1'
 	}
     repositories{
         mavenLocal()
@@ -20,6 +21,8 @@ buildscript{
     dependencies{
         //classpath "io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE"
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "org.flywaydb:flyway-gradle-plugin:${flyWayVersion}"
+
     }
 }
 
@@ -27,6 +30,7 @@ apply plugin: 'java'
 //apply plugin: 'io.spring.dependency-management'
 apply plugin: 'spring-boot'
 apply plugin:'idea'
+apply plugin: 'org.flywaydb.flyway'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -64,6 +68,7 @@ dependencies {
             "org.springframework.boot:spring-boot-starter-actuator",
             "org.springframework.boot:spring-boot-starter-redis",
             "org.springframework.boot:spring-boot-starter-cache",
+            "org.springframework.boot:spring-boot-starter-thymeleaf",
             "com.google.guava:guava:$guavaVersion",
             "mysql:mysql-connector-java:$mysqlJDBCVersion",
             "org.apache.commons:commons-lang3:$lang3Version",
@@ -81,4 +86,12 @@ dependencies {
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.4'
+}
+
+flyway {
+    url = 'jdbc:mysql://localhost/test'
+    driver = 'com.mysql.jdbc.Driver'
+    user = 'root'
+    password = 'root'
+    //locations = 'classpath:main/db'
 }

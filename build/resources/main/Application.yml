@@ -16,10 +16,12 @@ spring.jpa.hibernate:
   naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
   factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
 ---
+#jpa数据库配置
 spring.jpa:
   show-sql: true
   database: MYSQL
 ---
+#hibernater配置二级缓存
 spring.jpa.properties:
   hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
   org.hibernate.cache.ehcache.configurationResourceName: classpath*:ehcache.xml
